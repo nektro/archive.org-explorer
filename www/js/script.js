@@ -1,6 +1,7 @@
 //
 import "./x-item-preview.js";
 import "./x-item.js";
+import "./x-review.js";
 
 //
 const identifier = new URL(location.href).searchParams.get("item");

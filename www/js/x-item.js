@@ -103,6 +103,9 @@ customElements.define("x-item", class extends LitElement {
                         <p>Average Rating: ${this.d.reviews.reduce((p,c)=>p+parseInt(c.stars,10),0)/this.d.reviews.length} <i class="star icon"></i></p>
                     </div>
                 </div>
+                <hr>
+                <h3>Reviews</h3>
+                <div class="reviews">${html([get_reviews(this.d.reviews)])}</div>
             </main>
         `;
     }
@@ -164,4 +167,18 @@ function btos(bytes) {
         return (input/div).toFixed(1) + " " + prefixes[exp] + base;
     };
     return convert(bytes, 1024, "B", "KMGTPEZY")
+}
+
+function get_reviews(list) {
+    return list.reduce((p,c) => {
+        return p + `
+            <x-review
+                date="${c.reviewdate}"
+                user="${c.reviewer}"
+                stars="${c.stars}"
+                title="${c.reviewtitle}"
+                descr="${c.reviewbody}"
+            ></x-review>
+        `;
+    }, "")
 }
