@@ -11,6 +11,7 @@ customElements.define("x-item-preview", class extends LitElement {
         await fetch(`https://archive.org/metadata/${this.ident}`)
         .then((x) => x.json())
         .then((x) => {
+            // dont need to check if this is valid because it is only instantiated with valid IDs
             this.title = x.metadata.title;
             this.description = x.metadata.description;
         });

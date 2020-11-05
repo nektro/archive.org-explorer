@@ -29,7 +29,9 @@ customElements.define("x-item", class extends LitElement {
     static get properties() {
         return {
             ident: { type: String },
+            // metadata object
             d: { attribute: false },
+            // related items object
             r: { attribute: false },
         };
     }
@@ -134,6 +136,12 @@ customElements.define("x-item", class extends LitElement {
     }
 });
 
+/**
+ * take in the /metadata/.metadata object and return the proper html
+ *
+ * @see https://archive.org/metadata/InformationM
+ * @param {Object} metad 
+ */
 function get_metadata(metad) {
     return Object.keys(metad).reduce((p,c) => {
         switch (c) {
@@ -152,6 +160,9 @@ function get_metadata(metad) {
 }
 
 /**
+ * take in a /metadata/.metadate object key and return the fixed string
+ *
+ * @see https://archive.org/metadata/InformationM
  * @param {string} key
  */
 function get_metadata_key_name(key) {
@@ -165,6 +176,10 @@ function get_metadata_key_name(key) {
 }
 
 /**
+ * take in a /metadata/.metadata object value and return html for it
+ * special handling since val may sometimes be either string or array
+ *
+ * @see https://archive.org/metadata/InformationM
  * @param {String|Array<String>} val
  */
 function get_metadata_value(val) {
@@ -176,6 +191,12 @@ function get_metadata_value(val) {
     }, "")
 }
 
+/**
+ * take in an amount of bytes and return the string version of it
+ * ie 684034089 -> 652.3 MB
+ *
+ * @param {Number} bytes
+ */
 function btos(bytes) {
     const convert = (input, unit, base, prefixes) => {
         if (input < unit) {
@@ -192,6 +213,12 @@ function btos(bytes) {
     return convert(bytes, 1024, "B", "KMGTPEZY")
 }
 
+/**
+ * take in a /metadata/.reviews object and return the proper html for it
+ *
+ * @see https://archive.org/metadata/InformationM
+ * @param {Array<Object>} list
+ */
 function get_reviews(list) {
     if (list === undefined) {
         return "<p>None.</p>";
@@ -209,6 +236,12 @@ function get_reviews(list) {
     }, "")
 }
 
+/**
+ * take in a /related/.hits api object and return the proper html for it
+ *
+ * @see https://be-api.us.archive.org/mds/v1/get_related/all/InformationM
+ * @param {Array<Object>} list
+ */
 function get_related(list) {
     return list.reduce((p,c) => {
         return p + `<x-item-preview ident="${c._id}" vertical="true"></x-item-preview>`;

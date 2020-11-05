@@ -16,6 +16,7 @@ customElements.define("x-review", class extends LitElement {
         };
     }
     static get styles() {
+        // I use flexbox a throughout this project, so I made this one with grid instead
         return css`
             main {
                 display: grid;
