@@ -112,8 +112,8 @@ customElements.define("x-item", class extends LitElement {
                         <p>Total Size: ${btos(this.d.item_size)}</p>
                         <p>File Count: ${this.d.files.length}</p>
                         <p>Files: <a target="_blank" href="https://archive.org/download/${this.ident}">Show all <i class="external alternate icon"></i></a>
-                        <p>Reviews: ${this.d.reviews.length}</p>
-                        <p>Average Rating: ${this.d.reviews.reduce((p,c)=>p+parseInt(c.stars,10),0)/this.d.reviews.length} <i class="star icon"></i></p>
+                        <p>Reviews: ${this.d.reviews?.length | 0}</p>
+                        <p>Average Rating: ${this.reviews === undefined ? 0 : this.d.reviews.reduce((p,c)=>p+parseInt(c.stars,10),0)/this.d.reviews.length} <i class="star icon"></i></p>
                     </div>
                 </div>
                 <hr>
@@ -186,6 +186,9 @@ function btos(bytes) {
 }
 
 function get_reviews(list) {
+    if (list === undefined) {
+        return "<p>None.</p>";
+    }
     return list.reduce((p,c) => {
         return p + `
             <x-review
