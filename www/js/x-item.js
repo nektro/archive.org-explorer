@@ -62,6 +62,19 @@ customElements.define("x-item", class extends LitElement {
                 height: max-content;
                 background-color: #efefef;
             }
+            main .related {
+                display: flex;
+                flex-direction: row;
+                overflow-x: scroll;
+                align-items: stretch;
+            }
+            main x-item-preview {
+                display: block;
+                margin: 1em 0;
+                max-width: 15em;
+                --x-item-preview-direction: column;
+                max-height: 30em;
+            }
         `;
     }
     render() {
@@ -106,6 +119,9 @@ customElements.define("x-item", class extends LitElement {
                 <hr>
                 <h3>Reviews</h3>
                 <div class="reviews">${html([get_reviews(this.d.reviews)])}</div>
+                <hr>
+                <h3>Related Items</h3>
+                <div class="related">${html([get_related(this.r.hits.hits)])}</div>
             </main>
         `;
     }
@@ -180,5 +196,11 @@ function get_reviews(list) {
                 descr="${c.reviewbody}"
             ></x-review>
         `;
+    }, "")
+}
+
+function get_related(list) {
+    return list.reduce((p,c) => {
+        return p + `<x-item-preview ident="${c._id}" vertical="true"></x-item-preview>`;
     }, "")
 }
