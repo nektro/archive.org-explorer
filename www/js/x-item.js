@@ -54,6 +54,10 @@ customElements.define("x-item", class extends LitElement {
                 flex-direction: row;
                 justify-content: space-between;
             }
+            main >.meta div:nth-child(1) {
+                max-width: 80%;
+                overflow-x: hidden;
+            }
             main >.meta div:nth-child(2) {
                 box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
                 border-radius: .5em;
