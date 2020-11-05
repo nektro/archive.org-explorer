@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Archive.org Explorer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- -->
+        <link rel="icon" href="data:,">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/components/icon.min.css" integrity="sha512-I7/aUklkRw/Q5C9/7X2EH1jsng7oBb2P29tXv15+83/hu8qE0BZJyXmCX2u230RZlcf0oylQqmStJGCPxQpUQw==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="./style.min.css">
+        <!-- -->
+        <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-loader.js" integrity="sha384-3HK5hxQbkFqOIxMbpROlRmRtYl2LBZ52t+tqcjzsmr9NJuOWQxl8RgQSyFvq2lhy" crossorigin="anonymous"></script>
+        <script type="module" src="./js/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a><i class="landmark icon"></i> Internet Archive</a>
+                <a><i class="window maximize outline icon"></i> Web</a>
+                <a><i class="book icon"></i> Books</a>
+                <a><i class="film icon"></i> Video</a>
+                <a><i class="headphones alternate icon"></i> Audio</a>
+                <a><i class="save outline icon"></i> Software</a>
+                <a><i class="images outline icon"></i> Images</a>
+            </nav>
+        </header>
+        <header>
+            <nav>
+                <a>About</a>
+                <a>Blog</a>
+                <a>Projects</a>
+                <a>Help</a>
+                <a>Donate ❤️</a>
+                <a>Contact</a>
+                <a>Jobs</a>
+                <a>Volunteer</a>
+                <a>People</a>
+            </nav>
+        </header>
+        <main>
+            <div id="no_item">
+                <h1>Welcome to Archive.org</h1>
+                <hr>
+                <h3>It seems like you didn't specify an item to inspect. Here's a few to get you started:</h3>
+            </div>
+            <div id="show_item">
+                <!-- -->
+                <!-- filled in with an x-item in script.js -->
+            </div>
+        </main>
+    </body>
+</html>
