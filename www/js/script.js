@@ -1,4 +1,5 @@
 //
+import "./x-item-preview.js";
 
 //
 const identifier = new URL(location.href).searchParams.get("item");
