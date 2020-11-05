@@ -1,0 +1,13 @@
+{
+  "name": "archive.org-explorer",
+  "version": "0.1.0",
+  "description": "Archive.org item explorer using their Metadata API",
+  "main": "index.js",
+  "author": "Meghan Denny <hello@nektro.net>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^7.12.1",
+    "http-server": "^0.12.3",
+    "jest": "^26.6.3"
+  }
+}
