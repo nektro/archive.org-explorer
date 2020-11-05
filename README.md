@@ -12,7 +12,7 @@ $ ./start.sh
 ```
 
 ## Deployment
-View a live version of this app at https://nektro.github.io/archive.org-explorer/.
+View a live version of this app at https://happy-johnson-3644a3.netlify.app/.
 
 ## Built With
 - [Archive.org API](https://archive.org/services/docs/api/)
