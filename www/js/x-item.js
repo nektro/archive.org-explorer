@@ -49,6 +49,9 @@ customElements.define("x-item", class extends LitElement {
                 width: 100%;
                 margin: 0;
             }
+            main h3 {
+                margin-bottom: 0;
+            }
             main >.meta {
                 display: flex;
                 flex-direction: row;
